@@ -23,12 +23,17 @@ or benchmark is executed.
 flowchart LR
     Repo[AI Research Works] --> Standards[Shared Portfolio Standards]
     Repo --> CGL[Citation Grounding Lab]
+    Repo --> TTAL[Tool Trajectory Audit Lab]
     Standards --> Docs[README, MIT, Roadmap, CI]
     CGL --> Benchmarks[Benchmark JSON]
     CGL --> Claims[Claim Extraction]
     CGL --> Retrieval[Lexical Evidence Retrieval]
     CGL --> Grounding[Support and Contradiction Scoring]
     CGL --> Reports[HTML and JSON Reports]
+    TTAL --> Traces[Agent and Tool Traces]
+    TTAL --> Audit[Loop, Failure, and Recovery Audits]
+    TTAL --> Metrics[Efficiency and Recoverability Metrics]
+    TTAL --> Dashboards[HTML and JSON Dashboards]
     Repo --> Roadmap[Planned Future Research Labs]
 ```
 
@@ -37,6 +42,7 @@ flowchart LR
 | Project | Focus | Research Signal | Deep Dive |
 | --- | --- | --- | --- |
 | `citation-grounding-lab` | Citation-aware RAG and LLM answer evaluation | Claim extraction, evidence retrieval, support scoring, contradiction heuristics, HTML reporting | [Architecture](projects/citation-grounding-lab/docs/ARCHITECTURE.md) |
+| `tool-trajectory-audit-lab` | Agent and tool trace auditing | Loop detection, failure recovery analysis, redundant action scoring, HTML reporting | [Architecture](projects/tool-trajectory-audit-lab/docs/ARCHITECTURE.md) |
 
 ## Repository Standards
 
@@ -52,7 +58,7 @@ The repository starts with a single polished project and is designed to expand
 into a broader AI research portfolio. The next planned labs are tracked in
 [docs/PORTFOLIO_ROADMAP.md](docs/PORTFOLIO_ROADMAP.md).
 
-## First Project: Citation Grounding Lab
+## Featured Projects
 
 `citation-grounding-lab` is a research-engineering framework for checking
 whether generated answers are actually supported by the documents they cite.
@@ -64,6 +70,11 @@ The project includes:
 - Heuristic support and contradiction scoring for each claim
 - Aggregate faithfulness metrics and HTML report generation
 
+`tool-trajectory-audit-lab` is a companion research project for auditing
+agent/tool execution traces. It focuses on whether an LLM-driven workflow
+recovers cleanly from errors, avoids redundant loops, and keeps tool usage
+efficient enough to be trustworthy in production settings.
+
 ## Layout
 
 ```text
@@ -72,7 +83,13 @@ The project includes:
 ├── docs/
 │   └── PORTFOLIO_ROADMAP.md
 ├── projects/
-│   └── citation-grounding-lab/
+│   ├── citation-grounding-lab/
+│   │   ├── benchmarks/
+│   │   ├── configs/
+│   │   ├── docs/
+│   │   ├── src/
+│   │   └── tests/
+│   └── tool-trajectory-audit-lab/
 │       ├── benchmarks/
 │       ├── configs/
 │       ├── docs/
@@ -85,6 +102,6 @@ The project includes:
 ## Why This Repo Works As Portfolio Material
 
 - The repo is organized like a long-lived research engineering workspace
-- The first project targets a real industry problem: grounded generation
+- The projects target real AI engineering problems: grounded generation and agent reliability
 - The code avoids dependency bloat and local-model requirements
 - The documentation reads like a deliberate technical portfolio, not a scratchpad

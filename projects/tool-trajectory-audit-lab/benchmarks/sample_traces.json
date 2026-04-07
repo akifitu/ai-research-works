@@ -1,0 +1,164 @@
+{
+  "benchmark_id": "mini-tool-trace-audit",
+  "description": "Small benchmark for evaluating agent and tool trajectory quality.",
+  "runs": [
+    {
+      "run_id": "recovery-oriented-session",
+      "task": "Inspect a CI workflow path, fix a typo, and proceed with the edit plan.",
+      "steps": [
+        {
+          "step_id": "step-01",
+          "kind": "assistant",
+          "content": "I will inspect the CI workflow path first."
+        },
+        {
+          "step_id": "step-02",
+          "kind": "tool_call",
+          "tool_name": "rg",
+          "content": "rg --files .github",
+          "duration_ms": 35
+        },
+        {
+          "step_id": "step-03",
+          "kind": "tool_result",
+          "status": "success",
+          "content": ".github/workflows/ci.yml",
+          "duration_ms": 8
+        },
+        {
+          "step_id": "step-04",
+          "kind": "tool_call",
+          "tool_name": "sed",
+          "content": "sed -n '1,120p' .github/workflow/ci.yml",
+          "duration_ms": 28
+        },
+        {
+          "step_id": "step-05",
+          "kind": "tool_result",
+          "status": "failure",
+          "content": "sed: .github/workflow/ci.yml: No such file or directory",
+          "duration_ms": 11
+        },
+        {
+          "step_id": "step-06",
+          "kind": "assistant",
+          "content": "The path is wrong; I need the workflows directory."
+        },
+        {
+          "step_id": "step-07",
+          "kind": "tool_call",
+          "tool_name": "sed",
+          "content": "sed -n '1,120p' .github/workflows/ci.yml",
+          "duration_ms": 31
+        },
+        {
+          "step_id": "step-08",
+          "kind": "tool_result",
+          "status": "success",
+          "content": "name: ci\\non: [push, pull_request]",
+          "duration_ms": 10
+        },
+        {
+          "step_id": "step-09",
+          "kind": "tool_call",
+          "tool_name": "apply_patch",
+          "content": "Update the workflow path and test matrix comments.",
+          "duration_ms": 92
+        },
+        {
+          "step_id": "step-10",
+          "kind": "tool_result",
+          "status": "success",
+          "content": "Success. Updated the following files: M .github/workflows/ci.yml",
+          "duration_ms": 27
+        }
+      ]
+    },
+    {
+      "run_id": "loopy-empty-session",
+      "task": "Search for docs and inspect a missing repository repeatedly.",
+      "steps": [
+        {
+          "step_id": "step-01",
+          "kind": "assistant",
+          "content": "I will search for the docs folder."
+        },
+        {
+          "step_id": "step-02",
+          "kind": "tool_call",
+          "tool_name": "rg",
+          "content": "rg --files docs",
+          "duration_ms": 41
+        },
+        {
+          "step_id": "step-03",
+          "kind": "tool_result",
+          "status": "success",
+          "content": "",
+          "duration_ms": 9
+        },
+        {
+          "step_id": "step-04",
+          "kind": "tool_call",
+          "tool_name": "rg",
+          "content": "rg --files docs",
+          "duration_ms": 43
+        },
+        {
+          "step_id": "step-05",
+          "kind": "tool_result",
+          "status": "success",
+          "content": "",
+          "duration_ms": 10
+        },
+        {
+          "step_id": "step-06",
+          "kind": "tool_call",
+          "tool_name": "rg",
+          "content": "rg --files docs",
+          "duration_ms": 44
+        },
+        {
+          "step_id": "step-07",
+          "kind": "tool_result",
+          "status": "success",
+          "content": "",
+          "duration_ms": 11
+        },
+        {
+          "step_id": "step-08",
+          "kind": "tool_call",
+          "tool_name": "gh",
+          "content": "gh repo view akifitu/nonexistent-repo",
+          "duration_ms": 1450
+        },
+        {
+          "step_id": "step-09",
+          "kind": "tool_result",
+          "status": "failure",
+          "content": "GraphQL: Could not resolve to a Repository with the name 'akifitu/nonexistent-repo'.",
+          "duration_ms": 320
+        },
+        {
+          "step_id": "step-10",
+          "kind": "tool_call",
+          "tool_name": "gh",
+          "content": "gh repo view akifitu/nonexistent-repo",
+          "duration_ms": 1510
+        },
+        {
+          "step_id": "step-11",
+          "kind": "tool_result",
+          "status": "failure",
+          "content": "GraphQL: Could not resolve to a Repository with the name 'akifitu/nonexistent-repo'.",
+          "duration_ms": 335
+        },
+        {
+          "step_id": "step-12",
+          "kind": "assistant",
+          "content": "The repository still does not resolve."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "experiment_name": "portfolio-audit-baseline",
+  "loop_repeat_threshold": 3,
+  "empty_result_threshold": 2,
+  "recovery_window": 4,
+  "latency_threshold_ms": 1200
+}

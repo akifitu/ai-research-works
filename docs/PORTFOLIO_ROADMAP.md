@@ -9,12 +9,12 @@ valuable on GitHub.
 | Status | Project | Goal |
 | --- | --- | --- |
 | Implemented | `citation-grounding-lab` | Evaluate whether answer claims are supported by cited source documents |
+| Implemented | `tool-trajectory-audit-lab` | Audit agent/tool trajectories for loops, recovery quality, and redundant work |
 
 ## Planned Projects
 
 | Status | Project | Goal |
 | --- | --- | --- |
-| Planned | `tool-trajectory-audit-lab` | Analyze agent/tool traces for recoverability, loops, and wasted actions |
 | Planned | `long-context-stress-lab` | Measure context packing, retrieval loss, and answer drift across long prompts |
 | Planned | `prompt-rubric-distillation-lab` | Convert qualitative evaluation rubrics into structured scoring programs |
 | Planned | `multi-hop-evidence-mapper` | Track evidence chains across multi-document reasoning tasks |
