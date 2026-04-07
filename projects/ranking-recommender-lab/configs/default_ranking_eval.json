@@ -1,0 +1,8 @@
+{
+  "experiment_name": "portfolio-ranking-recommender",
+  "k": 5,
+  "coverage_floor": 0.45,
+  "long_tail_floor": 0.12,
+  "cold_start_ndcg_floor": 0.45,
+  "regression_threshold": 0.08
+}

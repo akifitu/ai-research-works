@@ -11,6 +11,7 @@ that are hard to reproduce.
 | Agentic AI | `tool-trajectory-audit-lab` | Agent trace auditing, tool loop detection, recovery quality |
 | Agentic AI | `agentic-ablation-benchmark` | Variant comparison across prompt, tool-policy, retrieval, cost, and recovery |
 | Reinforcement Learning | `bandit-policy-evaluation-lab` | Offline policy evaluation, IPS/SNIPS, support diagnostics, regret alerts |
+| Recommender Systems | `ranking-recommender-lab` | Ranking metrics, coverage diagnostics, long-tail exposure, cold-start analysis |
 | LLM / RAG | `citation-grounding-lab` | Claim grounding, citation precision, contradiction checks |
 | LLM / Context Engineering | `long-context-stress-lab` | Context packing, relevant coverage, answer drift |
 | LLM Evaluation | `prompt-rubric-distillation-lab` | Rubric normalization, scorecard generation, ambiguity flags |
@@ -25,7 +26,6 @@ that are hard to reproduce.
 
 | Future Discipline | Candidate Lab | Research Angle |
 | --- | --- | --- |
-| Recommender Systems | `ranking-recommender-lab` | MAP@K, NDCG, cold-start slices, catalog coverage |
 | Multimodal AI | `multimodal-retrieval-lab` | Image/text retrieval, cross-modal ranking quality |
 | Graph ML | `graph-representation-lab` | Link prediction splits, neighborhood leakage checks |
 | Speech AI | `speech-transcription-eval-lab` | WER/CER, timestamp drift, noisy-audio slices |

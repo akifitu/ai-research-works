@@ -12,6 +12,7 @@ valuable on GitHub.
 | Implemented | `tool-trajectory-audit-lab` | Audit agent/tool trajectories for loops, recovery quality, and redundant work |
 | Implemented | `agentic-ablation-benchmark` | Compare prompt, tool-policy, and retrieval variants across common agent task sets |
 | Implemented | `bandit-policy-evaluation-lab` | Evaluate offline bandit policies with IPS/SNIPS estimates, support diagnostics, and regret analysis |
+| Implemented | `ranking-recommender-lab` | Evaluate recommendation rankings with NDCG@K, MAP@K, coverage, long-tail, and cold-start slices |
 | Implemented | `long-context-stress-lab` | Measure context packing quality, noise buildup, and answer drift across budget tiers |
 | Implemented | `prompt-rubric-distillation-lab` | Convert qualitative evaluation rubrics into weighted scorecards and structured scoring programs |
 | Implemented | `multi-hop-evidence-mapper` | Track reasoning hops, bridge entities, and conclusion support across multi-document evidence chains |
@@ -25,7 +26,6 @@ valuable on GitHub.
 
 | Status | Project | Goal |
 | --- | --- | --- |
-| Planned | `ranking-recommender-lab` | Add recommender-system coverage with NDCG, MAP@K, and cold-start slices |
 | Planned | `multimodal-retrieval-lab` | Add multimodal AI coverage with image/text retrieval quality checks |
 | Planned | `graph-representation-lab` | Add graph ML coverage with link prediction splits and leakage checks |
 | Planned | `speech-transcription-eval-lab` | Add speech AI coverage with WER/CER and timestamp drift analysis |

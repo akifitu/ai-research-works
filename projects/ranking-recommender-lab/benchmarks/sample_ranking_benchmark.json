@@ -1,0 +1,166 @@
+{
+  "benchmark_id": "mini-ranking-recommender-benchmark",
+  "description": "Small ranking benchmark covering homepage and related-item recommendation scenarios.",
+  "scenarios": [
+    {
+      "scenario_id": "homepage-feed",
+      "name": "Homepage feed ranking comparison",
+      "k": 5,
+      "baseline_system_id": "popularity_baseline",
+      "catalog": [
+        { "item_id": "n1", "is_long_tail": false },
+        { "item_id": "n2", "is_long_tail": false },
+        { "item_id": "n3", "is_long_tail": false },
+        { "item_id": "n4", "is_long_tail": false },
+        { "item_id": "n5", "is_long_tail": false },
+        { "item_id": "n6", "is_long_tail": false },
+        { "item_id": "n7", "is_long_tail": true },
+        { "item_id": "n8", "is_long_tail": true },
+        { "item_id": "n9", "is_long_tail": true },
+        { "item_id": "n10", "is_long_tail": true },
+        { "item_id": "n11", "is_long_tail": true },
+        { "item_id": "n12", "is_long_tail": true }
+      ],
+      "systems": [
+        {
+          "system_id": "popularity_baseline",
+          "family": "popularity",
+          "notes": "Current default feed ranker"
+        },
+        {
+          "system_id": "hybrid_personalized",
+          "family": "hybrid",
+          "notes": "Personalization with collaborative and content features"
+        },
+        {
+          "system_id": "trend_hunter",
+          "family": "trend",
+          "notes": "Chases short-term popularity spikes"
+        }
+      ],
+      "queries": [
+        {
+          "query_id": "home-001",
+          "segment": "cold_start",
+          "relevant_items": [
+            { "item_id": "n2", "grade": 3 },
+            { "item_id": "n7", "grade": 2 },
+            { "item_id": "n9", "grade": 1 }
+          ],
+          "predictions": {
+            "popularity_baseline": ["n1", "n2", "n3", "n4", "n5"],
+            "hybrid_personalized": ["n2", "n7", "n9", "n4", "n5"],
+            "trend_hunter": ["n1", "n3", "n4", "n5", "n2"]
+          }
+        },
+        {
+          "query_id": "home-002",
+          "segment": "active",
+          "relevant_items": [
+            { "item_id": "n4", "grade": 3 },
+            { "item_id": "n1", "grade": 2 },
+            { "item_id": "n8", "grade": 1 }
+          ],
+          "predictions": {
+            "popularity_baseline": ["n1", "n4", "n2", "n3", "n5"],
+            "hybrid_personalized": ["n4", "n1", "n8", "n2", "n6"],
+            "trend_hunter": ["n1", "n2", "n3", "n4", "n5"]
+          }
+        },
+        {
+          "query_id": "home-003",
+          "segment": "cold_start",
+          "relevant_items": [
+            { "item_id": "n5", "grade": 3 },
+            { "item_id": "n10", "grade": 2 }
+          ],
+          "predictions": {
+            "popularity_baseline": ["n1", "n2", "n5", "n3", "n4"],
+            "hybrid_personalized": ["n5", "n10", "n2", "n6", "n1"],
+            "trend_hunter": ["n1", "n2", "n3", "n4", "n5"]
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "related-items",
+      "name": "Related item ranking comparison",
+      "k": 5,
+      "baseline_system_id": "cooccurrence_baseline",
+      "catalog": [
+        { "item_id": "r1", "is_long_tail": false },
+        { "item_id": "r2", "is_long_tail": false },
+        { "item_id": "r3", "is_long_tail": false },
+        { "item_id": "r4", "is_long_tail": false },
+        { "item_id": "r5", "is_long_tail": false },
+        { "item_id": "r6", "is_long_tail": false },
+        { "item_id": "r7", "is_long_tail": true },
+        { "item_id": "r8", "is_long_tail": true },
+        { "item_id": "r9", "is_long_tail": true },
+        { "item_id": "r10", "is_long_tail": true },
+        { "item_id": "r11", "is_long_tail": true },
+        { "item_id": "r12", "is_long_tail": true }
+      ],
+      "systems": [
+        {
+          "system_id": "cooccurrence_baseline",
+          "family": "cooccurrence",
+          "notes": "Item-item baseline in production"
+        },
+        {
+          "system_id": "embedding_ranker",
+          "family": "embedding",
+          "notes": "Semantic nearest-neighbor ranker"
+        },
+        {
+          "system_id": "popularity_loop",
+          "family": "popularity",
+          "notes": "Over-indexes on global bestsellers"
+        }
+      ],
+      "queries": [
+        {
+          "query_id": "rel-001",
+          "segment": "loyal",
+          "relevant_items": [
+            { "item_id": "r3", "grade": 3 },
+            { "item_id": "r7", "grade": 2 },
+            { "item_id": "r8", "grade": 1 }
+          ],
+          "predictions": {
+            "cooccurrence_baseline": ["r1", "r3", "r2", "r4", "r5"],
+            "embedding_ranker": ["r3", "r7", "r8", "r2", "r5"],
+            "popularity_loop": ["r1", "r2", "r4", "r5", "r6"]
+          }
+        },
+        {
+          "query_id": "rel-002",
+          "segment": "cold_start",
+          "relevant_items": [
+            { "item_id": "r6", "grade": 3 },
+            { "item_id": "r9", "grade": 2 }
+          ],
+          "predictions": {
+            "cooccurrence_baseline": ["r1", "r6", "r2", "r3", "r4"],
+            "embedding_ranker": ["r6", "r9", "r3", "r1", "r7"],
+            "popularity_loop": ["r1", "r2", "r3", "r4", "r5"]
+          }
+        },
+        {
+          "query_id": "rel-003",
+          "segment": "loyal",
+          "relevant_items": [
+            { "item_id": "r2", "grade": 3 },
+            { "item_id": "r5", "grade": 2 },
+            { "item_id": "r10", "grade": 1 }
+          ],
+          "predictions": {
+            "cooccurrence_baseline": ["r2", "r1", "r5", "r3", "r4"],
+            "embedding_ranker": ["r2", "r5", "r10", "r1", "r6"],
+            "popularity_loop": ["r1", "r2", "r3", "r4", "r5"]
+          }
+        }
+      ]
+    }
+  ]
+}
