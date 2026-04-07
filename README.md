@@ -34,6 +34,7 @@ flowchart LR
     LLM --> PRDL[Prompt Rubric Distillation Lab]
     LLM --> MHEM[Multi-Hop Evidence Mapper]
     Agents --> TTAL[Tool Trajectory Audit Lab]
+    Agents --> AAB[Agentic Ablation Benchmark]
     CV --> VEL[Vision Evaluation Lab]
     NLP --> NSEL[NLP Semantic Evaluation Lab]
     ML --> TMRL[Tabular ML Reliability Lab]
@@ -47,6 +48,7 @@ flowchart LR
 | --- | --- | --- | --- |
 | `citation-grounding-lab` | LLM / RAG | Claim extraction, evidence retrieval, support scoring, contradiction heuristics | [Architecture](projects/citation-grounding-lab/docs/ARCHITECTURE.md) |
 | `tool-trajectory-audit-lab` | Agentic AI | Loop detection, failure recovery analysis, redundant action scoring | [Architecture](projects/tool-trajectory-audit-lab/docs/ARCHITECTURE.md) |
+| `agentic-ablation-benchmark` | Agentic AI | Variant comparison, completion scoring, recovery deltas, cost and latency tradeoffs | [Architecture](projects/agentic-ablation-benchmark/docs/ARCHITECTURE.md) |
 | `long-context-stress-lab` | LLM / Context Engineering | Relevant coverage, noise ratios, unsupported insertion scoring | [Architecture](projects/long-context-stress-lab/docs/ARCHITECTURE.md) |
 | `prompt-rubric-distillation-lab` | LLM Evaluation | Dimension inference, ambiguity flags, normalized weights, scorecards | [Architecture](projects/prompt-rubric-distillation-lab/docs/ARCHITECTURE.md) |
 | `multi-hop-evidence-mapper` | LLM / Multi-Hop Reasoning | Hop support scoring, bridge checks, conclusion grounding | [Architecture](projects/multi-hop-evidence-mapper/docs/ARCHITECTURE.md) |
@@ -89,6 +91,7 @@ python -m unittest discover -s projects/vision-evaluation-lab/tests -p "test_*.p
 |   |-- AI_DISCIPLINE_MAP.md
 |   `-- PORTFOLIO_ROADMAP.md
 |-- projects/
+|   |-- agentic-ablation-benchmark/
 |   |-- citation-grounding-lab/
 |   |-- long-context-stress-lab/
 |   |-- mlops-experiment-registry-lab/

@@ -13,6 +13,7 @@ jobs:
       fail-fast: false
       matrix:
         project:
+          - agentic-ablation-benchmark
           - citation-grounding-lab
           - tool-trajectory-audit-lab
           - long-context-stress-lab

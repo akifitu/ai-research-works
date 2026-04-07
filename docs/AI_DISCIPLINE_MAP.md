@@ -9,6 +9,7 @@ that are hard to reproduce.
 | Discipline | Lab | What It Demonstrates |
 | --- | --- | --- |
 | Agentic AI | `tool-trajectory-audit-lab` | Agent trace auditing, tool loop detection, recovery quality |
+| Agentic AI | `agentic-ablation-benchmark` | Variant comparison across prompt, tool-policy, retrieval, cost, and recovery |
 | LLM / RAG | `citation-grounding-lab` | Claim grounding, citation precision, contradiction checks |
 | LLM / Context Engineering | `long-context-stress-lab` | Context packing, relevant coverage, answer drift |
 | LLM Evaluation | `prompt-rubric-distillation-lab` | Rubric normalization, scorecard generation, ambiguity flags |

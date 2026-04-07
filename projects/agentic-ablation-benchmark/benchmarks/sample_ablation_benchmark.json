@@ -1,0 +1,111 @@
+{
+  "benchmark_id": "mini-agentic-ablation",
+  "description": "Small benchmark for comparing agent variants across common coding and research tasks.",
+  "tasks": [
+    {
+      "task_id": "ci-path-fix",
+      "name": "Fix a CI workflow path issue and summarize the change.",
+      "baseline_variant_id": "baseline",
+      "variants": [
+        {
+          "variant_id": "baseline",
+          "prompt_strategy": "default",
+          "tool_policy": "default",
+          "retrieval_policy": "none",
+          "completed": true,
+          "quality_score": 0.78,
+          "tool_calls": 6,
+          "failed_calls": 1,
+          "recovered_failures": 1,
+          "loop_events": 0,
+          "latency_ms": 4100,
+          "prompt_tokens": 820,
+          "completion_tokens": 360
+        },
+        {
+          "variant_id": "prompt_structured",
+          "prompt_strategy": "structured",
+          "tool_policy": "default",
+          "retrieval_policy": "none",
+          "completed": true,
+          "quality_score": 0.86,
+          "tool_calls": 5,
+          "failed_calls": 1,
+          "recovered_failures": 1,
+          "loop_events": 0,
+          "latency_ms": 3600,
+          "prompt_tokens": 760,
+          "completion_tokens": 330
+        },
+        {
+          "variant_id": "tool_aggressive",
+          "prompt_strategy": "default",
+          "tool_policy": "aggressive",
+          "retrieval_policy": "none",
+          "completed": true,
+          "quality_score": 0.72,
+          "tool_calls": 10,
+          "failed_calls": 2,
+          "recovered_failures": 1,
+          "loop_events": 2,
+          "latency_ms": 6200,
+          "prompt_tokens": 880,
+          "completion_tokens": 420
+        }
+      ]
+    },
+    {
+      "task_id": "repo-audit",
+      "name": "Audit a repository and identify the primary regression.",
+      "baseline_variant_id": "baseline",
+      "variants": [
+        {
+          "variant_id": "baseline",
+          "prompt_strategy": "default",
+          "tool_policy": "default",
+          "retrieval_policy": "light",
+          "completed": true,
+          "quality_score": 0.74,
+          "tool_calls": 7,
+          "failed_calls": 0,
+          "recovered_failures": 0,
+          "loop_events": 0,
+          "latency_ms": 4800,
+          "prompt_tokens": 900,
+          "completion_tokens": 390
+        },
+        {
+          "variant_id": "retrieval_deep",
+          "prompt_strategy": "default",
+          "tool_policy": "default",
+          "retrieval_policy": "deep",
+          "completed": true,
+          "quality_score": 0.83,
+          "tool_calls": 8,
+          "failed_calls": 0,
+          "recovered_failures": 0,
+          "loop_events": 0,
+          "latency_ms": 5600,
+          "prompt_tokens": 1180,
+          "completion_tokens": 410
+        },
+        {
+          "variant_id": "retrieval_shallow",
+          "prompt_strategy": "default",
+          "tool_policy": "default",
+          "retrieval_policy": "shallow",
+          "completed": false,
+          "quality_score": 0.41,
+          "tool_calls": 4,
+          "failed_calls": 1,
+          "recovered_failures": 0,
+          "loop_events": 1,
+          "latency_ms": 2900,
+          "prompt_tokens": 640,
+          "completion_tokens": 180
+        }
+      ]
+    }
+  ]
+}
+
