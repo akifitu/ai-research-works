@@ -5,10 +5,11 @@
 [![Language: Python](https://img.shields.io/badge/language-Python-1d4ed8.svg)](https://www.python.org/)
 
 This repository is a portfolio-ready AI research engineering monorepo. It
-covers LLM evaluation, agentic AI reliability, computer vision, NLP, tabular
-machine learning, time-series data science, and MLOps experiment governance.
-Each lab is intentionally dependency-light so the repository remains easy to
-review, test, and extend before heavy model infrastructure is introduced.
+covers LLM evaluation, agentic AI reliability, reinforcement learning,
+computer vision, NLP, tabular machine learning, time-series data science, and
+MLOps experiment governance. Each lab is intentionally dependency-light so the
+repository remains easy to review, test, and extend before heavy model
+infrastructure is introduced.
 
 ## Portfolio Signal
 
@@ -16,7 +17,7 @@ review, test, and extend before heavy model infrastructure is introduced.
 - Provider-agnostic project structure that can grow lab by lab
 - Reproducible benchmark manifests, reports, and architecture docs
 - Python stdlib-first baseline with CI-backed unit tests
-- Practical coverage across LLMs, agents, CV, NLP, ML, data science, and MLOps
+- Practical coverage across LLMs, agents, RL, CV, NLP, ML, data science, and MLOps
 
 ## Repository Map
 
@@ -24,6 +25,7 @@ review, test, and extend before heavy model infrastructure is introduced.
 flowchart LR
     Repo[AI Research Works] --> LLM[LLM Systems]
     Repo --> Agents[Agentic AI]
+    Repo --> RL[Reinforcement Learning]
     Repo --> CV[Computer Vision]
     Repo --> NLP[NLP]
     Repo --> ML[Tabular ML]
@@ -35,6 +37,7 @@ flowchart LR
     LLM --> MHEM[Multi-Hop Evidence Mapper]
     Agents --> TTAL[Tool Trajectory Audit Lab]
     Agents --> AAB[Agentic Ablation Benchmark]
+    RL --> BPEL[Bandit Policy Evaluation Lab]
     CV --> VEL[Vision Evaluation Lab]
     NLP --> NSEL[NLP Semantic Evaluation Lab]
     ML --> TMRL[Tabular ML Reliability Lab]
@@ -49,6 +52,7 @@ flowchart LR
 | `citation-grounding-lab` | LLM / RAG | Claim extraction, evidence retrieval, support scoring, contradiction heuristics | [Architecture](projects/citation-grounding-lab/docs/ARCHITECTURE.md) |
 | `tool-trajectory-audit-lab` | Agentic AI | Loop detection, failure recovery analysis, redundant action scoring | [Architecture](projects/tool-trajectory-audit-lab/docs/ARCHITECTURE.md) |
 | `agentic-ablation-benchmark` | Agentic AI | Variant comparison, completion scoring, recovery deltas, cost and latency tradeoffs | [Architecture](projects/agentic-ablation-benchmark/docs/ARCHITECTURE.md) |
+| `bandit-policy-evaluation-lab` | Reinforcement Learning | Offline policy evaluation, IPS/SNIPS reward estimates, support diagnostics, regret analysis | [Architecture](projects/bandit-policy-evaluation-lab/docs/ARCHITECTURE.md) |
 | `long-context-stress-lab` | LLM / Context Engineering | Relevant coverage, noise ratios, unsupported insertion scoring | [Architecture](projects/long-context-stress-lab/docs/ARCHITECTURE.md) |
 | `prompt-rubric-distillation-lab` | LLM Evaluation | Dimension inference, ambiguity flags, normalized weights, scorecards | [Architecture](projects/prompt-rubric-distillation-lab/docs/ARCHITECTURE.md) |
 | `multi-hop-evidence-mapper` | LLM / Multi-Hop Reasoning | Hop support scoring, bridge checks, conclusion grounding | [Architecture](projects/multi-hop-evidence-mapper/docs/ARCHITECTURE.md) |
@@ -92,6 +96,7 @@ python -m unittest discover -s projects/vision-evaluation-lab/tests -p "test_*.p
 |   `-- PORTFOLIO_ROADMAP.md
 |-- projects/
 |   |-- agentic-ablation-benchmark/
+|   |-- bandit-policy-evaluation-lab/
 |   |-- citation-grounding-lab/
 |   |-- long-context-stress-lab/
 |   |-- mlops-experiment-registry-lab/
@@ -111,4 +116,4 @@ python -m unittest discover -s projects/vision-evaluation-lab/tests -p "test_*.p
 - It reads like a long-lived research engineering workspace, not a scratchpad
 - It covers both model-facing work and production-facing evaluation concerns
 - It demonstrates how to design testable AI infrastructure without hiding behind heavyweight dependencies
-- It is ready for future labs in reinforcement learning, recommender systems, multimodal AI, graph ML, and speech AI
+- It is ready for future labs in recommender systems, multimodal AI, graph ML, speech AI, and responsible AI

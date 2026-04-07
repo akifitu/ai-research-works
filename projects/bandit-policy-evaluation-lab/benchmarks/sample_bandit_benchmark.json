@@ -1,0 +1,177 @@
+{
+  "benchmark_id": "mini-bandit-policy-benchmark",
+  "description": "Small offline bandit benchmark covering recommendation and offer-allocation scenarios.",
+  "scenarios": [
+    {
+      "scenario_id": "homepage-recommendations",
+      "name": "Homepage recommendation slot policy comparison",
+      "baseline_policy_id": "epsilon_010",
+      "policies": [
+        {
+          "policy_id": "epsilon_010",
+          "family": "epsilon_greedy",
+          "exploration_rate": 0.1,
+          "notes": "Balanced exploration baseline"
+        },
+        {
+          "policy_id": "greedy_personalized",
+          "family": "greedy",
+          "exploration_rate": 0.0,
+          "notes": "Aggressive reward-seeking candidate"
+        },
+        {
+          "policy_id": "broad_explorer",
+          "family": "epsilon_greedy",
+          "exploration_rate": 0.25,
+          "notes": "High-exploration candidate with unstable support"
+        }
+      ],
+      "events": [
+        {
+          "event_id": "home-001",
+          "action_taken": "science",
+          "reward": 1.0,
+          "oracle_reward": 1.0,
+          "logging_propensity": 0.25,
+          "segment": "new_user",
+          "policy_support": {
+            "epsilon_010": 0.3,
+            "greedy_personalized": 0.7,
+            "broad_explorer": 0.05
+          }
+        },
+        {
+          "event_id": "home-002",
+          "action_taken": "productivity",
+          "reward": 1.0,
+          "oracle_reward": 1.0,
+          "logging_propensity": 0.25,
+          "segment": "new_user",
+          "policy_support": {
+            "epsilon_010": 0.28,
+            "greedy_personalized": 0.65,
+            "broad_explorer": 0.05
+          }
+        },
+        {
+          "event_id": "home-003",
+          "action_taken": "entertainment",
+          "reward": 0.0,
+          "oracle_reward": 0.8,
+          "logging_propensity": 0.25,
+          "segment": "returning_user",
+          "policy_support": {
+            "epsilon_010": 0.25,
+            "greedy_personalized": 0.0,
+            "broad_explorer": 1.0
+          }
+        },
+        {
+          "event_id": "home-004",
+          "action_taken": "finance",
+          "reward": 1.0,
+          "oracle_reward": 0.9,
+          "logging_propensity": 0.25,
+          "segment": "returning_user",
+          "policy_support": {
+            "epsilon_010": 0.32,
+            "greedy_personalized": 0.75,
+            "broad_explorer": 0.1
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "offer-allocation",
+      "name": "Offer allocation policy comparison for mixed-risk cohorts",
+      "baseline_policy_id": "safe_mixture",
+      "policies": [
+        {
+          "policy_id": "safe_mixture",
+          "family": "mixture",
+          "exploration_rate": 0.12,
+          "notes": "Current production baseline"
+        },
+        {
+          "policy_id": "margin_hunter",
+          "family": "greedy",
+          "exploration_rate": 0.02,
+          "notes": "Optimizes short-term gain on low-risk users"
+        },
+        {
+          "policy_id": "guardrail_first",
+          "family": "risk_sensitive",
+          "exploration_rate": 0.08,
+          "notes": "Conservative allocation policy"
+        }
+      ],
+      "events": [
+        {
+          "event_id": "offer-001",
+          "action_taken": "offer_a",
+          "reward": 1.0,
+          "oracle_reward": 1.0,
+          "logging_propensity": 0.2,
+          "segment": "low_risk",
+          "policy_support": {
+            "safe_mixture": 0.28,
+            "margin_hunter": 0.6,
+            "guardrail_first": 0.18
+          }
+        },
+        {
+          "event_id": "offer-002",
+          "action_taken": "offer_b",
+          "reward": 1.0,
+          "oracle_reward": 0.9,
+          "logging_propensity": 0.2,
+          "segment": "low_risk",
+          "policy_support": {
+            "safe_mixture": 0.26,
+            "margin_hunter": 0.55,
+            "guardrail_first": 0.18
+          }
+        },
+        {
+          "event_id": "offer-003",
+          "action_taken": "offer_c",
+          "reward": 1.0,
+          "oracle_reward": 0.8,
+          "logging_propensity": 0.2,
+          "segment": "medium_risk",
+          "policy_support": {
+            "safe_mixture": 0.24,
+            "margin_hunter": 0.15,
+            "guardrail_first": 0.18
+          }
+        },
+        {
+          "event_id": "offer-004",
+          "action_taken": "offer_d",
+          "reward": 0.0,
+          "oracle_reward": 0.9,
+          "logging_propensity": 0.2,
+          "segment": "high_risk",
+          "policy_support": {
+            "safe_mixture": 0.22,
+            "margin_hunter": 0.05,
+            "guardrail_first": 0.3
+          }
+        },
+        {
+          "event_id": "offer-005",
+          "action_taken": "offer_e",
+          "reward": 0.0,
+          "oracle_reward": 0.8,
+          "logging_propensity": 0.2,
+          "segment": "high_risk",
+          "policy_support": {
+            "safe_mixture": 0.2,
+            "margin_hunter": 0.05,
+            "guardrail_first": 0.3
+          }
+        }
+      ]
+    }
+  ]
+}

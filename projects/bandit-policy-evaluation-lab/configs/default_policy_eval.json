@@ -1,0 +1,9 @@
+{
+  "experiment_name": "portfolio-bandit-policy-eval",
+  "weight_clip": 4.0,
+  "support_floor": 0.8,
+  "min_effective_sample_ratio": 0.45,
+  "regret_alert_threshold": 0.18,
+  "segment_regret_threshold": 0.25,
+  "regression_threshold": 0.08
+}
