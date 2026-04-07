@@ -1,0 +1,9 @@
+{
+  "experiment_name": "portfolio-baseline",
+  "chunk_size": 40,
+  "chunk_overlap": 10,
+  "top_k": 4,
+  "support_threshold": 0.58,
+  "partial_threshold": 0.34,
+  "citation_match_threshold": 0.3
+}

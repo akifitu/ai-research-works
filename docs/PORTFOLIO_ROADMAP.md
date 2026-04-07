@@ -1,0 +1,28 @@
+# Portfolio Roadmap
+
+This roadmap keeps the repository coherent as more AI research projects are
+added. Each project should be portfolio-ready, documented, and independently
+valuable on GitHub.
+
+## Current Project
+
+| Status | Project | Goal |
+| --- | --- | --- |
+| Implemented | `citation-grounding-lab` | Evaluate whether answer claims are supported by cited source documents |
+
+## Planned Projects
+
+| Status | Project | Goal |
+| --- | --- | --- |
+| Planned | `tool-trajectory-audit-lab` | Analyze agent/tool traces for recoverability, loops, and wasted actions |
+| Planned | `long-context-stress-lab` | Measure context packing, retrieval loss, and answer drift across long prompts |
+| Planned | `prompt-rubric-distillation-lab` | Convert qualitative evaluation rubrics into structured scoring programs |
+| Planned | `multi-hop-evidence-mapper` | Track evidence chains across multi-document reasoning tasks |
+
+## Repository Rules
+
+- Every project gets its own README, `ARCHITECTURE.md`, and `IMPLEMENTATION_PLAN.md`
+- Prefer stdlib or minimal dependencies unless a project truly requires more
+- Keep benchmark assets small and illustrative unless the repo is explicitly
+  expanded into a dataset repository
+- Do not make local model setup a prerequisite for understanding the project

@@ -1,0 +1,57 @@
+{
+  "benchmark_id": "mini-citation-grounding",
+  "description": "Small benchmark for evaluating citation-grounded AI research answers.",
+  "samples": [
+    {
+      "sample_id": "transformers-parallelism",
+      "question": "Why did Transformer models improve training efficiency compared with recurrent networks?",
+      "answer": "Transformers improved training efficiency because self-attention allows tokens to be processed in parallel instead of step by step recurrence [doc_transformer_core]. Positional encodings preserve token order even without recurrent state [doc_transformer_core].",
+      "documents": [
+        {
+          "doc_id": "doc_transformer_core",
+          "title": "Transformer Core Ideas",
+          "text": "Transformer architectures replace recurrent computation with self-attention. Because all tokens can attend within the same layer, training can be parallelized across sequence positions. Since self-attention alone does not encode order, positional encodings are added to preserve token position information."
+        },
+        {
+          "doc_id": "doc_rag_failures",
+          "title": "Grounded Generation Failure Modes",
+          "text": "Retrieval-augmented generation can improve factuality, but systems still fail when the retrieved passages are irrelevant or when answers cite documents that do not contain the claimed fact."
+        }
+      ]
+    },
+    {
+      "sample_id": "rag-citation-quality",
+      "question": "Why are citation checks important in retrieval-augmented generation systems?",
+      "answer": "Citation checks matter because a RAG system can cite documents that do not actually support the answer claim [doc_rag_failures]. Grounding analysis helps surface unsupported statements before they appear trustworthy to the user [doc_rag_failures].",
+      "documents": [
+        {
+          "doc_id": "doc_rag_failures",
+          "title": "Grounded Generation Failure Modes",
+          "text": "Retrieval-augmented generation can improve factuality, but systems still fail when the retrieved passages are irrelevant or when answers cite documents that do not contain the claimed fact. Evaluators therefore need support checks that trace each answer claim back to real evidence."
+        },
+        {
+          "doc_id": "doc_reward_model_limits",
+          "title": "Reward Model Limitations",
+          "text": "Preference-trained reward models can overfit annotation artifacts if evaluation sets are narrow. Strong offline evaluation therefore requires multiple metrics rather than a single preference score."
+        }
+      ]
+    },
+    {
+      "sample_id": "rlhf-overclaim",
+      "question": "What risk appears when reward models are evaluated on narrow distributions?",
+      "answer": "Reward models do not overfit when the evaluation distribution is narrow [doc_reward_model_limits].",
+      "documents": [
+        {
+          "doc_id": "doc_reward_model_limits",
+          "title": "Reward Model Limitations",
+          "text": "Preference-trained reward models can overfit annotation artifacts if evaluation sets are narrow. Narrow evaluation distributions can therefore hide brittleness rather than eliminate it."
+        },
+        {
+          "doc_id": "doc_transformer_core",
+          "title": "Transformer Core Ideas",
+          "text": "Transformer architectures replace recurrent computation with self-attention and use positional encodings to preserve order."
+        }
+      ]
+    }
+  ]
+}

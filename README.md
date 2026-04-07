@@ -1,0 +1,90 @@
+# AI Research Works
+
+[![CI](https://github.com/akifitu/ai-research-works/actions/workflows/ci.yml/badge.svg)](https://github.com/akifitu/ai-research-works/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-0f766e.svg)](LICENSE)
+[![Language: Python](https://img.shields.io/badge/language-Python-1d4ed8.svg)](https://www.python.org/)
+
+This repository is a portfolio-ready AI research engineering monorepo focused
+on evaluation tooling, experiment design, and reproducible LLM systems work.
+It is structured to look credible on GitHub before any local model is installed
+or benchmark is executed.
+
+## Portfolio Signal
+
+- Research-oriented tooling instead of one-off demos
+- Provider-agnostic experiment structure that can grow project by project
+- Reproducible benchmark manifests, reports, and architecture docs
+- No local model dependency in the repository baseline
+- Static-review-friendly code and CI setup for future expansion
+
+## Repository Map
+
+```mermaid
+flowchart LR
+    Repo[AI Research Works] --> Standards[Shared Portfolio Standards]
+    Repo --> CGL[Citation Grounding Lab]
+    Standards --> Docs[README, MIT, Roadmap, CI]
+    CGL --> Benchmarks[Benchmark JSON]
+    CGL --> Claims[Claim Extraction]
+    CGL --> Retrieval[Lexical Evidence Retrieval]
+    CGL --> Grounding[Support and Contradiction Scoring]
+    CGL --> Reports[HTML and JSON Reports]
+    Repo --> Roadmap[Planned Future Research Labs]
+```
+
+## Projects
+
+| Project | Focus | Research Signal | Deep Dive |
+| --- | --- | --- | --- |
+| `citation-grounding-lab` | Citation-aware RAG and LLM answer evaluation | Claim extraction, evidence retrieval, support scoring, contradiction heuristics, HTML reporting | [Architecture](projects/citation-grounding-lab/docs/ARCHITECTURE.md) |
+
+## Repository Standards
+
+- MIT licensed repository and project artifacts
+- Python stdlib-first implementation to avoid forced local setup
+- Docs-first project structure with architecture and implementation plans
+- GitHub Actions CI prepared for future portfolio growth
+- Every project lives under `projects/` with its own README and technical docs
+
+## Near-Term Roadmap
+
+The repository starts with a single polished project and is designed to expand
+into a broader AI research portfolio. The next planned labs are tracked in
+[docs/PORTFOLIO_ROADMAP.md](docs/PORTFOLIO_ROADMAP.md).
+
+## First Project: Citation Grounding Lab
+
+`citation-grounding-lab` is a research-engineering framework for checking
+whether generated answers are actually supported by the documents they cite.
+The project includes:
+
+- Sentence-level claim extraction from answers
+- Inline citation parsing such as `[doc_id]`
+- Chunked lexical retrieval across the provided evidence set
+- Heuristic support and contradiction scoring for each claim
+- Aggregate faithfulness metrics and HTML report generation
+
+## Layout
+
+```text
+.
+├── .github/workflows/ci.yml
+├── docs/
+│   └── PORTFOLIO_ROADMAP.md
+├── projects/
+│   └── citation-grounding-lab/
+│       ├── benchmarks/
+│       ├── configs/
+│       ├── docs/
+│       ├── src/
+│       └── tests/
+├── LICENSE
+└── README.md
+```
+
+## Why This Repo Works As Portfolio Material
+
+- The repo is organized like a long-lived research engineering workspace
+- The first project targets a real industry problem: grounded generation
+- The code avoids dependency bloat and local-model requirements
+- The documentation reads like a deliberate technical portfolio, not a scratchpad
