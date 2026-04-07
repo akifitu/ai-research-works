@@ -1,0 +1,76 @@
+{
+  "benchmark_id": "mini-multi-hop-mapper",
+  "description": "Small benchmark for evaluating multi-document evidence chains.",
+  "cases": [
+    {
+      "case_id": "clean-acquisition-chain",
+      "question": "Why is the parent company connected to the final product launch?",
+      "answer": "Aurora is connected to the final launch because Aurora acquired Borealis Labs, and Borealis Labs built the Helios navigation stack used in the launch vehicle.",
+      "documents": [
+        {
+          "doc_id": "doc_acquisition",
+          "title": "Acquisition Announcement",
+          "text": "Aurora acquired Borealis Labs in 2024 to strengthen autonomy and navigation research."
+        },
+        {
+          "doc_id": "doc_product",
+          "title": "Product Launch Brief",
+          "text": "Borealis Labs developed the Helios navigation stack that was integrated into the Aster launch vehicle."
+        },
+        {
+          "doc_id": "doc_noise",
+          "title": "Investor Commentary",
+          "text": "Several aerospace firms discussed hiring plans and market demand without mentioning Helios."
+        }
+      ],
+      "reasoning_hops": [
+        {
+          "hop_id": "hop_01",
+          "claim": "Aurora acquired Borealis Labs.",
+          "bridge_terms": ["Aurora", "Borealis Labs"]
+        },
+        {
+          "hop_id": "hop_02",
+          "claim": "Borealis Labs developed the Helios navigation stack used in the launch vehicle.",
+          "bridge_terms": ["Borealis Labs", "Helios"]
+        }
+      ],
+      "conclusion_claim": "Aurora is connected to the launch because it owns Borealis Labs, which built the Helios navigation stack used in the vehicle."
+    },
+    {
+      "case_id": "broken-bridge-chain",
+      "question": "Why does the answer overstate the relationship between the organization and the vaccine program?",
+      "answer": "Northstar Health directly ran the vaccine program because it funded Meridian Research, which designed the Aurora vaccine trials.",
+      "documents": [
+        {
+          "doc_id": "doc_funding",
+          "title": "Foundation Grant Notice",
+          "text": "Northstar Health funded Meridian Research for respiratory analytics and lab infrastructure."
+        },
+        {
+          "doc_id": "doc_trials",
+          "title": "Trial Operations Update",
+          "text": "Aurora vaccine trials were designed by Meridian Clinical Systems, an unrelated organization."
+        },
+        {
+          "doc_id": "doc_background",
+          "title": "Public Health Background",
+          "text": "Regional clinics expanded flu outreach and hired temporary staff."
+        }
+      ],
+      "reasoning_hops": [
+        {
+          "hop_id": "hop_01",
+          "claim": "Northstar Health funded Meridian Research.",
+          "bridge_terms": ["Northstar Health", "Meridian Research"]
+        },
+        {
+          "hop_id": "hop_02",
+          "claim": "Meridian Research designed the Aurora vaccine trials.",
+          "bridge_terms": ["Meridian Research", "Aurora vaccine trials"]
+        }
+      ],
+      "conclusion_claim": "Northstar Health directly ran the Aurora vaccine program through Meridian Research."
+    }
+  ]
+}

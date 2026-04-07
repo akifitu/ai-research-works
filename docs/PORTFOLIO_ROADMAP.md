@@ -12,6 +12,7 @@ valuable on GitHub.
 | Implemented | `tool-trajectory-audit-lab` | Audit agent/tool trajectories for loops, recovery quality, and redundant work |
 | Implemented | `long-context-stress-lab` | Measure context packing quality, noise buildup, and answer drift across budget tiers |
 | Implemented | `prompt-rubric-distillation-lab` | Convert qualitative evaluation rubrics into weighted scorecards and structured scoring programs |
+| Implemented | `multi-hop-evidence-mapper` | Track reasoning hops, bridge entities, and conclusion support across multi-document evidence chains |
 | Implemented | `vision-evaluation-lab` | Evaluate computer vision classification and detection outputs with IoU and class metrics |
 | Implemented | `nlp-semantic-evaluation-lab` | Score NLP outputs with lexical similarity, entity F1, and intent accuracy |
 | Implemented | `tabular-ml-reliability-lab` | Audit tabular ML datasets for drift, missingness, and leakage candidates |
@@ -22,7 +23,7 @@ valuable on GitHub.
 
 | Status | Project | Goal |
 | --- | --- | --- |
-| Planned | `multi-hop-evidence-mapper` | Track evidence chains across multi-document reasoning tasks |
+| Planned | `agentic-ablation-benchmark` | Compare prompt, tool-policy, and retrieval variants across common agent task sets |
 | Planned | `bandit-policy-evaluation-lab` | Add reinforcement learning coverage with offline policy evaluation and regret analysis |
 | Planned | `ranking-recommender-lab` | Add recommender-system coverage with NDCG, MAP@K, and cold-start slices |
 | Planned | `multimodal-retrieval-lab` | Add multimodal AI coverage with image/text retrieval quality checks |

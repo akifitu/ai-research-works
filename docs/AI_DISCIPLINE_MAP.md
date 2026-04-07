@@ -12,6 +12,7 @@ that are hard to reproduce.
 | LLM / RAG | `citation-grounding-lab` | Claim grounding, citation precision, contradiction checks |
 | LLM / Context Engineering | `long-context-stress-lab` | Context packing, relevant coverage, answer drift |
 | LLM Evaluation | `prompt-rubric-distillation-lab` | Rubric normalization, scorecard generation, ambiguity flags |
+| LLM / Multi-Hop Reasoning | `multi-hop-evidence-mapper` | Hop support mapping, bridge continuity, conclusion grounding |
 | Computer Vision | `vision-evaluation-lab` | Detection IoU, greedy matching, classification metrics |
 | NLP | `nlp-semantic-evaluation-lab` | Text similarity, entity F1, intent accuracy |
 | Machine Learning | `tabular-ml-reliability-lab` | Drift checks, missingness shifts, leakage candidates |

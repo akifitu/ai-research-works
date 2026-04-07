@@ -17,6 +17,7 @@ jobs:
           - tool-trajectory-audit-lab
           - long-context-stress-lab
           - prompt-rubric-distillation-lab
+          - multi-hop-evidence-mapper
           - vision-evaluation-lab
           - nlp-semantic-evaluation-lab
           - tabular-ml-reliability-lab

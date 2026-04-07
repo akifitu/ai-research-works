@@ -32,6 +32,7 @@ flowchart LR
     LLM --> CGL[Citation Grounding Lab]
     LLM --> LCSL[Long Context Stress Lab]
     LLM --> PRDL[Prompt Rubric Distillation Lab]
+    LLM --> MHEM[Multi-Hop Evidence Mapper]
     Agents --> TTAL[Tool Trajectory Audit Lab]
     CV --> VEL[Vision Evaluation Lab]
     NLP --> NSEL[NLP Semantic Evaluation Lab]
@@ -48,6 +49,7 @@ flowchart LR
 | `tool-trajectory-audit-lab` | Agentic AI | Loop detection, failure recovery analysis, redundant action scoring | [Architecture](projects/tool-trajectory-audit-lab/docs/ARCHITECTURE.md) |
 | `long-context-stress-lab` | LLM / Context Engineering | Relevant coverage, noise ratios, unsupported insertion scoring | [Architecture](projects/long-context-stress-lab/docs/ARCHITECTURE.md) |
 | `prompt-rubric-distillation-lab` | LLM Evaluation | Dimension inference, ambiguity flags, normalized weights, scorecards | [Architecture](projects/prompt-rubric-distillation-lab/docs/ARCHITECTURE.md) |
+| `multi-hop-evidence-mapper` | LLM / Multi-Hop Reasoning | Hop support scoring, bridge checks, conclusion grounding | [Architecture](projects/multi-hop-evidence-mapper/docs/ARCHITECTURE.md) |
 | `vision-evaluation-lab` | Computer Vision | Bounding-box IoU, detection matching, classification metrics | [Architecture](projects/vision-evaluation-lab/docs/ARCHITECTURE.md) |
 | `nlp-semantic-evaluation-lab` | NLP | Token overlap, LCS similarity, entity F1, intent accuracy | [Architecture](projects/nlp-semantic-evaluation-lab/docs/ARCHITECTURE.md) |
 | `tabular-ml-reliability-lab` | Machine Learning | Data profiling, drift signals, missingness shifts, leakage flags | [Architecture](projects/tabular-ml-reliability-lab/docs/ARCHITECTURE.md) |
@@ -90,6 +92,7 @@ python -m unittest discover -s projects/vision-evaluation-lab/tests -p "test_*.p
 |   |-- citation-grounding-lab/
 |   |-- long-context-stress-lab/
 |   |-- mlops-experiment-registry-lab/
+|   |-- multi-hop-evidence-mapper/
 |   |-- nlp-semantic-evaluation-lab/
 |   |-- prompt-rubric-distillation-lab/
 |   |-- tabular-ml-reliability-lab/
@@ -105,4 +108,4 @@ python -m unittest discover -s projects/vision-evaluation-lab/tests -p "test_*.p
 - It reads like a long-lived research engineering workspace, not a scratchpad
 - It covers both model-facing work and production-facing evaluation concerns
 - It demonstrates how to design testable AI infrastructure without hiding behind heavyweight dependencies
-- It is ready for future labs in multimodal retrieval, recommender systems, reinforcement learning, graph ML, and speech AI
+- It is ready for future labs in reinforcement learning, recommender systems, multimodal AI, graph ML, and speech AI

@@ -1,0 +1,7 @@
+{
+  "experiment_name": "portfolio-chain-baseline",
+  "hop_support_threshold": 0.45,
+  "bridge_support_threshold": 0.5,
+  "conclusion_support_threshold": 0.48,
+  "doc_contribution_threshold": 0.2
+}
