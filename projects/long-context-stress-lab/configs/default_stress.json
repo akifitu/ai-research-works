@@ -1,0 +1,7 @@
+{
+  "experiment_name": "portfolio-stress-baseline",
+  "min_relevant_coverage": 0.65,
+  "max_noise_ratio": 0.45,
+  "drift_drop_threshold": 0.12,
+  "unsupported_token_rate_threshold": 0.35
+}

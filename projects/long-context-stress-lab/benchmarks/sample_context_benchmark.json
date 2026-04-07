@@ -1,0 +1,113 @@
+{
+  "benchmark_id": "mini-long-context-stress",
+  "description": "Small benchmark for analyzing long-context packing quality and answer drift.",
+  "cases": [
+    {
+      "case_id": "dilution-drift-case",
+      "question": "Why did the largest context budget degrade the answer?",
+      "reference_answer": "The largest context budget degraded the answer because peripheral passages diluted the core evidence and the long-budget response added an unsupported instruction-tuning explanation.",
+      "context_items": [
+        {
+          "item_id": "ctx_core_dilution",
+          "title": "Core Failure Note",
+          "estimated_tokens": 42,
+          "priority": 100,
+          "relevance": true,
+          "text": "Core finding: the large prompt packed many peripheral passages, which diluted the core evidence and buried the failure note."
+        },
+        {
+          "item_id": "ctx_core_unsupported",
+          "title": "Unsupported Explanation Note",
+          "estimated_tokens": 38,
+          "priority": 95,
+          "relevance": true,
+          "text": "Core finding: the long-budget answer introduced an instruction-tuning explanation that the evidence never stated."
+        },
+        {
+          "item_id": "ctx_noise_history",
+          "title": "Instruction Tuning Background",
+          "estimated_tokens": 55,
+          "priority": 60,
+          "relevance": false,
+          "text": "Background: instruction tuning became popular across many product teams and changed annotation workflows, but this note is unrelated to the failure analysis."
+        },
+        {
+          "item_id": "ctx_noise_benchmark",
+          "title": "Benchmark Averages",
+          "estimated_tokens": 60,
+          "priority": 55,
+          "relevance": false,
+          "text": "Background: long-context benchmarks often report average accuracy, latency, and hardware settings for unrelated studies."
+        },
+        {
+          "item_id": "ctx_noise_stack",
+          "title": "Retrieval Stack Notes",
+          "estimated_tokens": 60,
+          "priority": 50,
+          "relevance": false,
+          "text": "Background: retrieval stacks may include caching, metadata filters, and synthetic documents that do not explain this failure."
+        }
+      ],
+      "answer_snapshots": [
+        {
+          "snapshot_id": "budget_80",
+          "budget_tokens": 80,
+          "answer": "The large budget hurt quality because peripheral passages diluted the core evidence."
+        },
+        {
+          "snapshot_id": "budget_140",
+          "budget_tokens": 140,
+          "answer": "The largest budget degraded the answer because peripheral passages diluted the core evidence."
+        },
+        {
+          "snapshot_id": "budget_260",
+          "budget_tokens": 260,
+          "answer": "The largest budget degraded the answer because instruction tuning was removed and the model forgot how to follow prompts."
+        }
+      ]
+    },
+    {
+      "case_id": "overflow-recovery-case",
+      "question": "Why did the smallest budget miss the evaluation caveat?",
+      "reference_answer": "The smallest budget missed the evaluation caveat because the caveat passage about multilingual tail failures was trimmed out of context, but the medium budget restored it.",
+      "context_items": [
+        {
+          "item_id": "ctx_summary",
+          "title": "Average Summary",
+          "estimated_tokens": 45,
+          "priority": 100,
+          "relevance": true,
+          "text": "Relevant summary: the smallest budget preserved only the benchmark average summary and omitted the caveat passage."
+        },
+        {
+          "item_id": "ctx_caveat",
+          "title": "Tail Failure Caveat",
+          "estimated_tokens": 50,
+          "priority": 90,
+          "relevance": true,
+          "text": "Relevant caveat: benchmark averages hid multilingual tail failures, and this caveat was trimmed out at the smallest budget."
+        },
+        {
+          "item_id": "ctx_noise_export",
+          "title": "Dashboard Export Notes",
+          "estimated_tokens": 35,
+          "priority": 40,
+          "relevance": false,
+          "text": "Noise: dashboard color settings and report export notes."
+        }
+      ],
+      "answer_snapshots": [
+        {
+          "snapshot_id": "budget_60",
+          "budget_tokens": 60,
+          "answer": "The smallest budget kept only the benchmark average summary and missed the caveat passage."
+        },
+        {
+          "snapshot_id": "budget_120",
+          "budget_tokens": 120,
+          "answer": "The medium budget restored the caveat that benchmark averages hid multilingual tail failures."
+        }
+      ]
+    }
+  ]
+}
