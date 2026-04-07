@@ -1,0 +1,180 @@
+{
+  "benchmark_id": "mini-multimodal-retrieval",
+  "description": "Small multimodal retrieval benchmark covering fashion and commerce scenarios.",
+  "scenarios": [
+    {
+      "scenario_id": "fashion-lookbook",
+      "name": "Fashion lookbook retrieval comparison",
+      "k": 3,
+      "baseline_system_id": "clip_baseline",
+      "assets": [
+        { "asset_id": "img_red_coat", "modality": "image" },
+        { "asset_id": "img_blue_denim", "modality": "image" },
+        { "asset_id": "img_minimal_sneaker", "modality": "image" },
+        { "asset_id": "img_leather_boot", "modality": "image" },
+        { "asset_id": "img_summer_dress", "modality": "image" },
+        { "asset_id": "img_green_jacket", "modality": "image" },
+        { "asset_id": "txt_red_coat", "modality": "text" },
+        { "asset_id": "txt_blue_denim", "modality": "text" },
+        { "asset_id": "txt_minimal_sneaker", "modality": "text" },
+        { "asset_id": "txt_leather_boot", "modality": "text" },
+        { "asset_id": "txt_summer_dress", "modality": "text" },
+        { "asset_id": "txt_green_jacket", "modality": "text" }
+      ],
+      "systems": [
+        {
+          "system_id": "clip_baseline",
+          "family": "dual_encoder",
+          "notes": "Current production baseline"
+        },
+        {
+          "system_id": "fusion_reranker",
+          "family": "two_stage",
+          "notes": "Dual encoder plus lightweight fusion reranker"
+        },
+        {
+          "system_id": "caption_drift_model",
+          "family": "caption_biased",
+          "notes": "Overfits to frequent caption patterns"
+        }
+      ],
+      "queries": [
+        {
+          "query_id": "fashion-001",
+          "direction": "text_to_image",
+          "segment": "cold_start",
+          "relevant_target_ids": ["img_red_coat"],
+          "hard_negative_ids": ["img_blue_denim"],
+          "predictions": {
+            "clip_baseline": ["img_blue_denim", "img_red_coat", "img_leather_boot"],
+            "fusion_reranker": ["img_red_coat", "img_green_jacket", "img_summer_dress"],
+            "caption_drift_model": ["img_blue_denim", "img_leather_boot", "img_minimal_sneaker"]
+          }
+        },
+        {
+          "query_id": "fashion-002",
+          "direction": "text_to_image",
+          "segment": "active",
+          "relevant_target_ids": ["img_minimal_sneaker"],
+          "hard_negative_ids": ["img_leather_boot"],
+          "predictions": {
+            "clip_baseline": ["img_red_coat", "img_minimal_sneaker", "img_green_jacket"],
+            "fusion_reranker": ["img_minimal_sneaker", "img_summer_dress", "img_blue_denim"],
+            "caption_drift_model": ["img_blue_denim", "img_leather_boot", "img_minimal_sneaker"]
+          }
+        },
+        {
+          "query_id": "fashion-003",
+          "direction": "image_to_text",
+          "segment": "active",
+          "relevant_target_ids": ["txt_summer_dress"],
+          "hard_negative_ids": ["txt_blue_denim"],
+          "predictions": {
+            "clip_baseline": ["txt_red_coat", "txt_summer_dress", "txt_green_jacket"],
+            "fusion_reranker": ["txt_summer_dress", "txt_red_coat", "txt_green_jacket"],
+            "caption_drift_model": ["txt_blue_denim", "txt_leather_boot", "txt_red_coat"]
+          }
+        },
+        {
+          "query_id": "fashion-004",
+          "direction": "image_to_text",
+          "segment": "cold_start",
+          "relevant_target_ids": ["txt_green_jacket"],
+          "hard_negative_ids": ["txt_leather_boot"],
+          "predictions": {
+            "clip_baseline": ["txt_green_jacket", "txt_blue_denim", "txt_red_coat"],
+            "fusion_reranker": ["txt_green_jacket", "txt_blue_denim", "txt_minimal_sneaker"],
+            "caption_drift_model": ["txt_leather_boot", "txt_blue_denim", "txt_red_coat"]
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "commerce-pairs",
+      "name": "Commerce product pair retrieval comparison",
+      "k": 3,
+      "baseline_system_id": "dual_encoder_baseline",
+      "assets": [
+        { "asset_id": "img_coffee_grinder", "modality": "image" },
+        { "asset_id": "img_pour_over_kettle", "modality": "image" },
+        { "asset_id": "img_espresso_scale", "modality": "image" },
+        { "asset_id": "img_tea_infuser", "modality": "image" },
+        { "asset_id": "img_glass_mug", "modality": "image" },
+        { "asset_id": "img_milk_frother", "modality": "image" },
+        { "asset_id": "txt_coffee_grinder", "modality": "text" },
+        { "asset_id": "txt_pour_over_kettle", "modality": "text" },
+        { "asset_id": "txt_espresso_scale", "modality": "text" },
+        { "asset_id": "txt_tea_infuser", "modality": "text" },
+        { "asset_id": "txt_glass_mug", "modality": "text" },
+        { "asset_id": "txt_milk_frother", "modality": "text" }
+      ],
+      "systems": [
+        {
+          "system_id": "dual_encoder_baseline",
+          "family": "dual_encoder",
+          "notes": "Baseline product retrieval system"
+        },
+        {
+          "system_id": "reranked_alignment",
+          "family": "reranked_dual_encoder",
+          "notes": "Adds lightweight cross-modal reranking"
+        },
+        {
+          "system_id": "visual_popularity_loop",
+          "family": "popularity_biased",
+          "notes": "Over-indexes on globally frequent products"
+        }
+      ],
+      "queries": [
+        {
+          "query_id": "commerce-001",
+          "direction": "text_to_image",
+          "segment": "cold_start",
+          "relevant_target_ids": ["img_pour_over_kettle"],
+          "hard_negative_ids": ["img_tea_infuser"],
+          "predictions": {
+            "dual_encoder_baseline": ["img_glass_mug", "img_pour_over_kettle", "img_coffee_grinder"],
+            "reranked_alignment": ["img_pour_over_kettle", "img_coffee_grinder", "img_espresso_scale"],
+            "visual_popularity_loop": ["img_tea_infuser", "img_glass_mug", "img_milk_frother"]
+          }
+        },
+        {
+          "query_id": "commerce-002",
+          "direction": "text_to_image",
+          "segment": "loyal",
+          "relevant_target_ids": ["img_espresso_scale"],
+          "hard_negative_ids": ["img_milk_frother"],
+          "predictions": {
+            "dual_encoder_baseline": ["img_coffee_grinder", "img_espresso_scale", "img_glass_mug"],
+            "reranked_alignment": ["img_espresso_scale", "img_pour_over_kettle", "img_coffee_grinder"],
+            "visual_popularity_loop": ["img_milk_frother", "img_glass_mug", "img_tea_infuser"]
+          }
+        },
+        {
+          "query_id": "commerce-003",
+          "direction": "image_to_text",
+          "segment": "loyal",
+          "relevant_target_ids": ["txt_coffee_grinder"],
+          "hard_negative_ids": ["txt_milk_frother"],
+          "predictions": {
+            "dual_encoder_baseline": ["txt_glass_mug", "txt_coffee_grinder", "txt_pour_over_kettle"],
+            "reranked_alignment": ["txt_coffee_grinder", "txt_pour_over_kettle", "txt_espresso_scale"],
+            "visual_popularity_loop": ["txt_milk_frother", "txt_glass_mug", "txt_tea_infuser"]
+          }
+        },
+        {
+          "query_id": "commerce-004",
+          "direction": "image_to_text",
+          "segment": "cold_start",
+          "relevant_target_ids": ["txt_glass_mug"],
+          "hard_negative_ids": ["txt_tea_infuser"],
+          "predictions": {
+            "dual_encoder_baseline": ["txt_glass_mug", "txt_pour_over_kettle", "txt_espresso_scale"],
+            "reranked_alignment": ["txt_glass_mug", "txt_pour_over_kettle", "txt_coffee_grinder"],
+            "visual_popularity_loop": ["txt_tea_infuser", "txt_milk_frother", "txt_coffee_grinder"]
+          }
+        }
+      ]
+    }
+  ]
+}

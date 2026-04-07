@@ -6,10 +6,10 @@
 
 This repository is a portfolio-ready AI research engineering monorepo. It
 covers LLM evaluation, agentic AI reliability, reinforcement learning,
-recommender systems, computer vision, NLP, tabular machine learning,
-time-series data science, and MLOps experiment governance. Each lab is
-intentionally dependency-light so the repository remains easy to review, test,
-and extend before heavy model infrastructure is introduced.
+recommender systems, multimodal AI, computer vision, NLP, tabular machine
+learning, time-series data science, and MLOps experiment governance. Each lab
+is intentionally dependency-light so the repository remains easy to review,
+test, and extend before heavy model infrastructure is introduced.
 
 ## Portfolio Signal
 
@@ -17,7 +17,7 @@ and extend before heavy model infrastructure is introduced.
 - Provider-agnostic project structure that can grow lab by lab
 - Reproducible benchmark manifests, reports, and architecture docs
 - Python stdlib-first baseline with CI-backed unit tests
-- Practical coverage across LLMs, agents, RL, recommender systems, CV, NLP, ML, data science, and MLOps
+- Practical coverage across LLMs, agents, RL, recommenders, multimodal AI, CV, NLP, ML, data science, and MLOps
 
 ## Repository Map
 
@@ -27,6 +27,7 @@ flowchart LR
     Repo --> Agents[Agentic AI]
     Repo --> RL[Reinforcement Learning]
     Repo --> RS[Recommender Systems]
+    Repo --> MM[Multimodal AI]
     Repo --> CV[Computer Vision]
     Repo --> NLP[NLP]
     Repo --> ML[Tabular ML]
@@ -40,6 +41,7 @@ flowchart LR
     Agents --> AAB[Agentic Ablation Benchmark]
     RL --> BPEL[Bandit Policy Evaluation Lab]
     RS --> RRL[Ranking Recommender Lab]
+    MM --> MMRL[Multimodal Retrieval Lab]
     CV --> VEL[Vision Evaluation Lab]
     NLP --> NSEL[NLP Semantic Evaluation Lab]
     ML --> TMRL[Tabular ML Reliability Lab]
@@ -56,6 +58,7 @@ flowchart LR
 | `agentic-ablation-benchmark` | Agentic AI | Variant comparison, completion scoring, recovery deltas, cost and latency tradeoffs | [Architecture](projects/agentic-ablation-benchmark/docs/ARCHITECTURE.md) |
 | `bandit-policy-evaluation-lab` | Reinforcement Learning | Offline policy evaluation, IPS/SNIPS reward estimates, support diagnostics, regret analysis | [Architecture](projects/bandit-policy-evaluation-lab/docs/ARCHITECTURE.md) |
 | `ranking-recommender-lab` | Recommender Systems | NDCG@K, MAP@K, hit rate, catalog coverage, long-tail and cold-start analysis | [Architecture](projects/ranking-recommender-lab/docs/ARCHITECTURE.md) |
+| `multimodal-retrieval-lab` | Multimodal AI | Image-text recall@K, MRR, coverage, hard-negative robustness, direction and segment slices | [Architecture](projects/multimodal-retrieval-lab/docs/ARCHITECTURE.md) |
 | `long-context-stress-lab` | LLM / Context Engineering | Relevant coverage, noise ratios, unsupported insertion scoring | [Architecture](projects/long-context-stress-lab/docs/ARCHITECTURE.md) |
 | `prompt-rubric-distillation-lab` | LLM Evaluation | Dimension inference, ambiguity flags, normalized weights, scorecards | [Architecture](projects/prompt-rubric-distillation-lab/docs/ARCHITECTURE.md) |
 | `multi-hop-evidence-mapper` | LLM / Multi-Hop Reasoning | Hop support scoring, bridge checks, conclusion grounding | [Architecture](projects/multi-hop-evidence-mapper/docs/ARCHITECTURE.md) |
@@ -103,6 +106,7 @@ python -m unittest discover -s projects/vision-evaluation-lab/tests -p "test_*.p
 |   |-- citation-grounding-lab/
 |   |-- long-context-stress-lab/
 |   |-- mlops-experiment-registry-lab/
+|   |-- multimodal-retrieval-lab/
 |   |-- multi-hop-evidence-mapper/
 |   |-- nlp-semantic-evaluation-lab/
 |   |-- prompt-rubric-distillation-lab/
@@ -120,4 +124,4 @@ python -m unittest discover -s projects/vision-evaluation-lab/tests -p "test_*.p
 - It reads like a long-lived research engineering workspace, not a scratchpad
 - It covers both model-facing work and production-facing evaluation concerns
 - It demonstrates how to design testable AI infrastructure without hiding behind heavyweight dependencies
-- It is ready for future labs in multimodal AI, graph ML, speech AI, and responsible AI
+- It is ready for future labs in graph ML, speech AI, and responsible AI

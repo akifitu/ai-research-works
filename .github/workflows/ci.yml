@@ -16,6 +16,7 @@ jobs:
           - agentic-ablation-benchmark
           - bandit-policy-evaluation-lab
           - ranking-recommender-lab
+          - multimodal-retrieval-lab
           - citation-grounding-lab
           - tool-trajectory-audit-lab
           - long-context-stress-lab

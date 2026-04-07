@@ -1,0 +1,9 @@
+{
+  "experiment_name": "portfolio-multimodal-retrieval",
+  "k": 3,
+  "coverage_floor": 0.55,
+  "hard_negative_ceiling": 0.35,
+  "direction_recall_floor": 0.45,
+  "segment_recall_floor": 0.40,
+  "regression_threshold": 0.08
+}
