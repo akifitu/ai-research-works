@@ -12,12 +12,22 @@ valuable on GitHub.
 | Implemented | `tool-trajectory-audit-lab` | Audit agent/tool trajectories for loops, recovery quality, and redundant work |
 | Implemented | `long-context-stress-lab` | Measure context packing quality, noise buildup, and answer drift across budget tiers |
 | Implemented | `prompt-rubric-distillation-lab` | Convert qualitative evaluation rubrics into weighted scorecards and structured scoring programs |
+| Implemented | `vision-evaluation-lab` | Evaluate computer vision classification and detection outputs with IoU and class metrics |
+| Implemented | `nlp-semantic-evaluation-lab` | Score NLP outputs with lexical similarity, entity F1, and intent accuracy |
+| Implemented | `tabular-ml-reliability-lab` | Audit tabular ML datasets for drift, missingness, and leakage candidates |
+| Implemented | `time-series-forecasting-lab` | Run rolling forecasting backtests with MAE, SMAPE, and direction accuracy |
+| Implemented | `mlops-experiment-registry-lab` | Rank experiment runs and enforce reproducibility-aware promotion gates |
 
 ## Planned Projects
 
 | Status | Project | Goal |
 | --- | --- | --- |
 | Planned | `multi-hop-evidence-mapper` | Track evidence chains across multi-document reasoning tasks |
+| Planned | `bandit-policy-evaluation-lab` | Add reinforcement learning coverage with offline policy evaluation and regret analysis |
+| Planned | `ranking-recommender-lab` | Add recommender-system coverage with NDCG, MAP@K, and cold-start slices |
+| Planned | `multimodal-retrieval-lab` | Add multimodal AI coverage with image/text retrieval quality checks |
+| Planned | `graph-representation-lab` | Add graph ML coverage with link prediction splits and leakage checks |
+| Planned | `speech-transcription-eval-lab` | Add speech AI coverage with WER/CER and timestamp drift analysis |
 
 ## Repository Rules
 
@@ -26,3 +36,4 @@ valuable on GitHub.
 - Keep benchmark assets small and illustrative unless the repo is explicitly
   expanded into a dataset repository
 - Do not make local model setup a prerequisite for understanding the project
+- Keep the discipline map in `docs/AI_DISCIPLINE_MAP.md` aligned with implemented labs

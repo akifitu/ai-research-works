@@ -1,0 +1,7 @@
+{
+  "experiment_name": "baseline-nlp-eval",
+  "overlap_weight": 0.35,
+  "sequence_weight": 0.35,
+  "entity_weight": 0.20,
+  "intent_weight": 0.10
+}

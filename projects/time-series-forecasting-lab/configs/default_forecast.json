@@ -1,0 +1,6 @@
+{
+  "experiment_name": "baseline-time-series-forecast",
+  "strategy": "moving_average",
+  "window_size": 3,
+  "holdout_size": 4
+}

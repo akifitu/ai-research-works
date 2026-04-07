@@ -1,0 +1,31 @@
+{
+  "benchmark_id": "mini-mlops-registry",
+  "description": "Small experiment registry benchmark for promotion policy evaluation.",
+  "incumbent_run_id": "run-baseline-001",
+  "runs": [
+    {
+      "run_id": "run-baseline-001",
+      "model_name": "tabular-baseline",
+      "metrics": {"eval_f1": 0.781, "latency_ms": 42.0},
+      "parameters": {"seed": 7, "features": "v1"},
+      "metadata": {"dataset_id": "credit-v1", "code_sha": "abc123", "created_at": "2026-04-01T10:00:00Z"},
+      "tags": ["production"]
+    },
+    {
+      "run_id": "run-candidate-014",
+      "model_name": "tabular-gbdt",
+      "metrics": {"eval_f1": 0.814, "latency_ms": 57.0},
+      "parameters": {"seed": 7, "features": "v2"},
+      "metadata": {"dataset_id": "credit-v2", "code_sha": "def456", "created_at": "2026-04-02T14:00:00Z"},
+      "tags": ["candidate"]
+    },
+    {
+      "run_id": "run-leaky-099",
+      "model_name": "tabular-debug",
+      "metrics": {"eval_f1": 0.902, "latency_ms": 40.0},
+      "parameters": {"seed": 7, "features": "debug"},
+      "metadata": {"dataset_id": "credit-v2", "code_sha": "bad999", "created_at": "2026-04-02T15:00:00Z"},
+      "tags": ["candidate", "data_leakage"]
+    }
+  ]
+}

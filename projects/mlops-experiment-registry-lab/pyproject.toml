@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mlops-experiment-registry-lab"
+version = "0.1.0"
+description = "Portfolio-ready MLOps lab for experiment registry and promotion policy audits."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+  { name = "Akif T." }
+]
+dependencies = []
+
+[project.scripts]
+mlops-experiment-registry-lab = "mlops_experiment_registry_lab.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]

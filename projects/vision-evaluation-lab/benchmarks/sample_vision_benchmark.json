@@ -1,0 +1,44 @@
+{
+  "benchmark_id": "mini-vision-eval",
+  "description": "Small benchmark for detection and image classification auditing.",
+  "samples": [
+    {
+      "image_id": "warehouse_001",
+      "ground_truth_label": "forklift",
+      "predicted_label": "forklift",
+      "ground_truth_boxes": [
+        {"label": "forklift", "x_min": 10, "y_min": 10, "x_max": 90, "y_max": 80}
+      ],
+      "predicted_boxes": [
+        {"label": "forklift", "confidence": 0.93, "x_min": 12, "y_min": 12, "x_max": 88, "y_max": 78}
+      ],
+      "metadata": {"slice": "indoor"}
+    },
+    {
+      "image_id": "road_041",
+      "ground_truth_label": "pedestrian",
+      "predicted_label": "cyclist",
+      "ground_truth_boxes": [
+        {"label": "pedestrian", "x_min": 45, "y_min": 20, "x_max": 75, "y_max": 120}
+      ],
+      "predicted_boxes": [
+        {"label": "cyclist", "confidence": 0.64, "x_min": 46, "y_min": 21, "x_max": 76, "y_max": 118}
+      ],
+      "metadata": {"slice": "street"}
+    },
+    {
+      "image_id": "shelf_019",
+      "ground_truth_label": "package",
+      "predicted_label": "package",
+      "ground_truth_boxes": [
+        {"label": "package", "x_min": 20, "y_min": 30, "x_max": 60, "y_max": 70},
+        {"label": "package", "x_min": 80, "y_min": 30, "x_max": 130, "y_max": 75}
+      ],
+      "predicted_boxes": [
+        {"label": "package", "confidence": 0.88, "x_min": 21, "y_min": 31, "x_max": 61, "y_max": 71},
+        {"label": "package", "confidence": 0.31, "x_min": 140, "y_min": 40, "x_max": 170, "y_max": 80}
+      ],
+      "metadata": {"slice": "retail"}
+    }
+  ]
+}

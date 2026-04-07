@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vision-evaluation-lab"
+version = "0.1.0"
+description = "Portfolio-ready computer vision evaluation lab for detection and classification audits."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+  { name = "Akif T." }
+]
+dependencies = []
+
+[project.scripts]
+vision-evaluation-lab = "vision_evaluation_lab.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]

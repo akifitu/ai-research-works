@@ -1,0 +1,5 @@
+{
+  "experiment_name": "baseline-vision-eval",
+  "iou_threshold": 0.5,
+  "min_confidence": 0.25
+}

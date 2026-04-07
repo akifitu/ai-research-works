@@ -1,0 +1,16 @@
+{
+  "benchmark_id": "mini-tabular-reliability",
+  "description": "Small baseline/current tabular dataset comparison for reliability auditing.",
+  "baseline_rows": [
+    {"age": 32, "income": 58000, "region": "west", "approved": "yes", "approved_copy": "yes"},
+    {"age": 41, "income": 64000, "region": "west", "approved": "no", "approved_copy": "no"},
+    {"age": 29, "income": 52000, "region": "east", "approved": "yes", "approved_copy": "yes"},
+    {"age": 50, "income": 72000, "region": "south", "approved": "no", "approved_copy": "no"}
+  ],
+  "current_rows": [
+    {"age": 34, "income": 93000, "region": "west", "approved": "yes", "approved_copy": "yes"},
+    {"age": 43, "income": 102000, "region": "north", "approved": "no", "approved_copy": "no"},
+    {"age": 31, "income": null, "region": "north", "approved": "yes", "approved_copy": "yes"},
+    {"age": 53, "income": null, "region": "north", "approved": "no", "approved_copy": "no"}
+  ]
+}

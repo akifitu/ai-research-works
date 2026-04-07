@@ -1,0 +1,7 @@
+{
+  "experiment_name": "baseline-tabular-reliability",
+  "mean_shift_threshold": 0.30,
+  "missing_rate_delta_threshold": 0.20,
+  "categorical_overlap_threshold": 0.50,
+  "target_column": "approved"
+}

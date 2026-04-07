@@ -1,0 +1,33 @@
+{
+  "benchmark_id": "mini-nlp-semantic-eval",
+  "description": "Small benchmark for semantic similarity, entity extraction, and intent evaluation.",
+  "samples": [
+    {
+      "sample_id": "support_summary_001",
+      "reference": "The customer requested a refund because the delivery arrived late.",
+      "prediction": "The user asked for a refund after a late delivery.",
+      "expected_entities": ["customer", "refund", "delivery"],
+      "predicted_entities": ["user", "refund", "delivery"],
+      "expected_intent": "refund_request",
+      "predicted_intent": "refund_request"
+    },
+    {
+      "sample_id": "clinical_note_002",
+      "reference": "The patient reports mild headache and no fever.",
+      "prediction": "The patient reports severe fever and headache.",
+      "expected_entities": ["patient", "headache", "no fever"],
+      "predicted_entities": ["patient", "fever", "headache"],
+      "expected_intent": "symptom_summary",
+      "predicted_intent": "symptom_summary"
+    },
+    {
+      "sample_id": "ticket_route_003",
+      "reference": "Route this ticket to the billing team for invoice correction.",
+      "prediction": "Send this case to engineering for an outage investigation.",
+      "expected_entities": ["billing team", "invoice"],
+      "predicted_entities": ["engineering", "outage"],
+      "expected_intent": "billing_route",
+      "predicted_intent": "incident_route"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "experiment_name": "baseline-registry-policy",
+  "metric_name": "eval_f1",
+  "mode": "max",
+  "min_improvement": 0.01,
+  "required_metadata": ["dataset_id", "code_sha", "created_at"],
+  "blocked_tags": ["unsafe", "data_leakage"]
+}

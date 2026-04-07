@@ -1,0 +1,16 @@
+{
+  "benchmark_id": "mini-time-series-forecast",
+  "description": "Small forecasting benchmark for rolling backtest evaluation.",
+  "series": [
+    {
+      "series_id": "weekly_demand",
+      "values": [100, 104, 108, 111, 116, 120, 123, 128, 131, 135],
+      "metadata": {"domain": "retail"}
+    },
+    {
+      "series_id": "support_tickets",
+      "values": [45, 44, 47, 46, 50, 53, 54, 70, 72, 75],
+      "metadata": {"domain": "operations"}
+    }
+  ]
+}
