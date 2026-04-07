@@ -25,6 +25,7 @@ flowchart LR
     Repo --> CGL[Citation Grounding Lab]
     Repo --> TTAL[Tool Trajectory Audit Lab]
     Repo --> LCSL[Long Context Stress Lab]
+    Repo --> PRDL[Prompt Rubric Distillation Lab]
     Standards --> Docs[README, MIT, Roadmap, CI]
     CGL --> Benchmarks[Benchmark JSON]
     CGL --> Claims[Claim Extraction]
@@ -39,6 +40,10 @@ flowchart LR
     LCSL --> Coverage[Relevant Coverage and Noise Ratios]
     LCSL --> Drift[Budget-to-Budget Answer Drift]
     LCSL --> StressReports[HTML and JSON Stress Reports]
+    PRDL --> Rubrics[Qualitative Rubrics]
+    PRDL --> Normalize[Dimension and Weight Normalization]
+    PRDL --> Scorecards[Structured Scorecards]
+    PRDL --> RubricReports[HTML and JSON Rubric Reports]
     Repo --> Roadmap[Planned Future Research Labs]
 ```
 
@@ -49,6 +54,7 @@ flowchart LR
 | `citation-grounding-lab` | Citation-aware RAG and LLM answer evaluation | Claim extraction, evidence retrieval, support scoring, contradiction heuristics, HTML reporting | [Architecture](projects/citation-grounding-lab/docs/ARCHITECTURE.md) |
 | `tool-trajectory-audit-lab` | Agent and tool trace auditing | Loop detection, failure recovery analysis, redundant action scoring, HTML reporting | [Architecture](projects/tool-trajectory-audit-lab/docs/ARCHITECTURE.md) |
 | `long-context-stress-lab` | Long-context packing and answer drift analysis | Relevant coverage, noise ratios, unsupported insertion scoring, HTML reporting | [Architecture](projects/long-context-stress-lab/docs/ARCHITECTURE.md) |
+| `prompt-rubric-distillation-lab` | Rubric normalization and scorecard generation | Dimension inference, ambiguity flags, normalized weights, HTML reporting | [Architecture](projects/prompt-rubric-distillation-lab/docs/ARCHITECTURE.md) |
 
 ## Repository Standards
 
@@ -86,6 +92,11 @@ audits how relevant evidence is packed, how much irrelevant noise enters the
 window, and whether recorded answers drift away from the reference as prompts
 become longer.
 
+`prompt-rubric-distillation-lab` converts qualitative evaluation rubrics into
+structured scoring artifacts. It normalizes weights, infers scoring
+dimensions, flags ambiguous language, and emits reusable checklist-driven
+scorecards.
+
 ## Layout
 
 ```text
@@ -106,6 +117,12 @@ become longer.
 │   │   ├── docs/
 │   │   ├── src/
 │   │   └── tests/
+│   ├── prompt-rubric-distillation-lab/
+│   │   ├── benchmarks/
+│   │   ├── configs/
+│   │   ├── docs/
+│   │   ├── src/
+│   │   └── tests/
 │   └── tool-trajectory-audit-lab/
 │       ├── benchmarks/
 │       ├── configs/
@@ -119,6 +136,6 @@ become longer.
 ## Why This Repo Works As Portfolio Material
 
 - The repo is organized like a long-lived research engineering workspace
-- The projects target real AI engineering problems: grounded generation, agent reliability, and long-context robustness
+- The projects target real AI engineering problems: grounded generation, agent reliability, long-context robustness, and evaluation design
 - The code avoids dependency bloat and local-model requirements
 - The documentation reads like a deliberate technical portfolio, not a scratchpad

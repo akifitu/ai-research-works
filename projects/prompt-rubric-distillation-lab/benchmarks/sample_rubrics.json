@@ -1,0 +1,45 @@
+{
+  "benchmark_id": "mini-rubric-distillation",
+  "description": "Small benchmark for converting qualitative AI evaluation rubrics into structured scorecards.",
+  "rubrics": [
+    {
+      "rubric_id": "grounded-answer-review",
+      "task": "Evaluate a citation-heavy answer for quality and safety.",
+      "criteria": [
+        {
+          "criterion_id": "crit_accuracy",
+          "text": "The answer should be factually accurate and every major claim must be supported by cited evidence.",
+          "weight": 5
+        },
+        {
+          "criterion_id": "crit_clarity",
+          "text": "The answer should be clear, concise, and easy to follow."
+        },
+        {
+          "criterion_id": "crit_safety",
+          "text": "The answer should avoid harmful, privacy-violating, or policy-breaking suggestions.",
+          "weight": 4
+        }
+      ]
+    },
+    {
+      "rubric_id": "agent-trace-review",
+      "task": "Evaluate an agent trajectory for reliability and communication quality.",
+      "criteria": [
+        {
+          "criterion_id": "crit_recovery",
+          "text": "The agent should recover from failed tool calls instead of repeating the same action."
+        },
+        {
+          "criterion_id": "crit_efficiency",
+          "text": "The agent should use tools efficiently and avoid unnecessary retries."
+        },
+        {
+          "criterion_id": "crit_traceability",
+          "text": "The final response should clearly explain what changed and which files were affected.",
+          "weight": 3
+        }
+      ]
+    }
+  ]
+}

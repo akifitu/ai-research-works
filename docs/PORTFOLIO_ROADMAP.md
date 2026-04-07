@@ -11,12 +11,12 @@ valuable on GitHub.
 | Implemented | `citation-grounding-lab` | Evaluate whether answer claims are supported by cited source documents |
 | Implemented | `tool-trajectory-audit-lab` | Audit agent/tool trajectories for loops, recovery quality, and redundant work |
 | Implemented | `long-context-stress-lab` | Measure context packing quality, noise buildup, and answer drift across budget tiers |
+| Implemented | `prompt-rubric-distillation-lab` | Convert qualitative evaluation rubrics into weighted scorecards and structured scoring programs |
 
 ## Planned Projects
 
 | Status | Project | Goal |
 | --- | --- | --- |
-| Planned | `prompt-rubric-distillation-lab` | Convert qualitative evaluation rubrics into structured scoring programs |
 | Planned | `multi-hop-evidence-mapper` | Track evidence chains across multi-document reasoning tasks |
 
 ## Repository Rules

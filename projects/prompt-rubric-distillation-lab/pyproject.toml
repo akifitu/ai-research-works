@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "prompt-rubric-distillation-lab"
+version = "0.1.0"
+description = "Portfolio-ready framework for distilling qualitative evaluation rubrics into structured scorecards."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+  { name = "Akif T." }
+]
+dependencies = []
+
+[project.scripts]
+prompt-rubric-distillation-lab = "prompt_rubric_distillation_lab.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
